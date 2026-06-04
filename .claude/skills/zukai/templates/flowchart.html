@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #4a6cf7;
+    --accent-light: #f0f4ff;
+    --goal-color: #22c55e;
+    --goal-bg: #edfff4;
+    --text-main: #2c2c3e;
+    --text-sub: #7a7a95;
+    --arrow: #c8ccda;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'M PLUS Rounded 1c', -apple-system, 'Hiragino Sans', sans-serif;
+    background: #f0f2f5;
+    padding: 40px 24px;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .zukai {
+    background: #fff;
+    border-radius: 20px;
+    padding: 56px 64px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  }
+  .zukai-title {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  .zukai-sub {
+    text-align: center;
+    font-size: 17px;
+    color: #9a9ab0;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+  .flow-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .flow-node {
+    display: flex; flex-direction: column; align-items: center;
+    background: var(--accent-light);
+    border: 2.5px solid var(--accent);
+    border-radius: 16px;
+    padding: 22px 24px;
+    min-width: 140px;
+    text-align: center;
+  }
+  .flow-node.goal {
+    background: var(--goal-bg);
+    border-color: var(--goal-color);
+  }
+  .step-num {
+    font-size: 13px; font-weight: 700; color: var(--accent);
+    letter-spacing: 1px; margin-bottom: 8px;
+  }
+  .flow-node.goal .step-num { color: var(--goal-color); }
+  .step-label {
+    font-size: 17px; font-weight: 700; color: var(--text-main); line-height: 1.4;
+  }
+  .step-sub {
+    font-size: 14px; color: var(--text-sub); margin-top: 5px; font-weight: 400;
+  }
+  .flow-arrow { font-size: 24px; color: var(--arrow); flex-shrink: 0; }
+</style>
+</head>
+<body>
+<div class="zukai">
+  <div class="zukai-title">{{TITLE}}</div>
+  <div class="zukai-sub">{{SUBTITLE}}</div>
+  <div class="flow-row">
+    {{STEPS}}
+    <!-- ステップのパターン（必要な数だけ繰り返す）:
+    <div class="flow-node">
+      <div class="step-num">STEP N</div>
+      <div class="step-label">ラベル</div>
+      <div class="step-sub">サブテキスト</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    最後のステップ:
+    <div class="flow-node goal">
+      <div class="step-num">GOAL</div>
+      <div class="step-label">ラベル</div>
+      <div class="step-sub">サブテキスト</div>
+    </div>
+    -->
+  </div>
+</div>
+</body>
+</html>

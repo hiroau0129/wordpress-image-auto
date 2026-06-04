@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #4a6cf7;
+    --accent-light: #f0f4ff;
+    --accent-border: #dde3ff;
+    --text-main: #2c2c3e;
+    --text-sub: #7a7a95;
+    --divider: #ebebf0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'M PLUS Rounded 1c', -apple-system, 'Hiragino Sans', sans-serif;
+    background: #f0f2f5;
+    padding: 40px 24px;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .zukai {
+    background: #fff; border-radius: 20px; padding: 56px 64px;
+    max-width: 900px; width: 100%; box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  }
+  .zukai-title {
+    text-align: center; font-size: 34px; font-weight: 800;
+    color: var(--text-main); margin-bottom: 10px; letter-spacing: 0.5px;
+  }
+  .zukai-sub {
+    text-align: center; font-size: 17px; color: #9a9ab0;
+    margin-bottom: 40px; font-weight: 400;
+  }
+  .info-layout {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+  }
+  .info-right { border-left: 1px solid var(--divider); padding-left: 28px; }
+  .def-box {
+    border: 1.5px solid var(--accent-border); border-radius: 14px;
+    padding: 22px; margin-bottom: 22px; background: #fafbff;
+  }
+  .def-title { font-size: 16px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+  .def-text { font-size: 16px; color: #4a4a60; line-height: 1.75; font-weight: 400; }
+  .def-highlight { font-weight: 700; color: var(--text-main); }
+  .section-label {
+    font-size: 13px; color: #b0b0c8; font-weight: 700;
+    letter-spacing: 1.5px; margin-bottom: 14px; text-transform: uppercase;
+  }
+  .mini-flow { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .mini-node {
+    display: flex; flex-direction: column; align-items: center;
+    background: var(--accent-light); border-radius: 10px; padding: 12px 14px;
+    font-size: 13px; font-weight: 700; color: var(--accent); text-align: center; min-width: 72px;
+  }
+  .mini-node span { font-size: 12px; color: var(--text-sub); font-weight: 400; margin-top: 3px; }
+  .mini-arrow { font-size: 16px; color: #c8ccda; }
+  .numbered-item { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 18px; }
+  .num-badge {
+    min-width: 32px; height: 32px; background: var(--accent); color: #fff;
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 800; flex-shrink: 0;
+  }
+  .item-title { font-size: 16px; font-weight: 700; color: var(--text-main); }
+  .item-sub { font-size: 14px; color: var(--text-sub); margin-top: 3px; font-weight: 400; }
+</style>
+</head>
+<body>
+<div class="zukai">
+  <div class="zukai-title">{{TITLE}}</div>
+  <div class="zukai-sub">{{SUBTITLE}}</div>
+  <div class="info-layout">
+    <div class="info-left">
+      <div class="def-box">
+        <div class="def-title">{{DEF_TITLE}}</div>
+        <div class="def-text">{{DEF_TEXT}}</div>
+      </div>
+      <div class="section-label">{{FLOW_LABEL}}</div>
+      <div class="mini-flow">
+        {{MINI_FLOW_STEPS}}
+        <!--
+        パターン（→で繋ぐ）:
+        <div class="mini-node">略称<span>ラベル</span></div>
+        <div class="mini-arrow">→</div>
+        -->
+      </div>
+    </div>
+    <div class="info-right">
+      <div class="section-label">{{LIST_LABEL}}</div>
+      {{NUMBERED_ITEMS}}
+      <!--
+      パターン:
+      <div class="numbered-item">
+        <div class="num-badge">01</div>
+        <div>
+          <div class="item-title">タイトル</div>
+          <div class="item-sub">サブテキスト</div>
+        </div>
+      </div>
+      -->
+    </div>
+  </div>
+</div>
+</body>
+</html>

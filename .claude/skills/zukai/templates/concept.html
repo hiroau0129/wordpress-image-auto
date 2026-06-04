@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #4a6cf7;
+    --text-main: #2c2c3e;
+    --text-sub: #6a6a85;
+    --text-ex: #aaa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'M PLUS Rounded 1c', -apple-system, 'Hiragino Sans', sans-serif;
+    background: #f0f2f5;
+    padding: 40px 24px;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .zukai {
+    background: #fff; border-radius: 20px; padding: 56px 64px;
+    max-width: 900px; width: 100%; box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  }
+  .zukai-title {
+    text-align: center; font-size: 34px; font-weight: 800;
+    color: var(--text-main); margin-bottom: 10px; letter-spacing: 0.5px;
+  }
+  .zukai-sub {
+    text-align: center; font-size: 17px; color: #9a9ab0;
+    margin-bottom: 40px; font-weight: 400;
+  }
+  .concept-wrap {
+    display: flex; align-items: center; gap: 52px; flex-wrap: wrap;
+  }
+  .circle-diagram {
+    position: relative; width: 300px; height: 300px; flex-shrink: 0; margin: 0 auto;
+  }
+  .circle-ring {
+    position: absolute; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(74,108,247,0.25);
+  }
+  /* 階層数に応じてサイズ・色を調整。4階層が標準。 */
+  .r1 { width:300px; height:300px; background:rgba(74,108,247,0.05); color:#4a6cf7; font-size:17px; align-items:flex-start; padding-top:22px; }
+  .r2 { width:226px; height:226px; background:rgba(74,108,247,0.09); color:#3a5cf5; font-size:16px; align-items:flex-start; padding-top:18px; }
+  .r3 { width:158px; height:158px; background:rgba(74,108,247,0.16); color:#2a4cf0; font-size:15px; align-items:flex-start; padding-top:13px; }
+  .r4 { width:88px; height:88px; background:#4a6cf7; color:#fff; font-size:14px; border-color:#4a6cf7; }
+  .legend { flex: 1; min-width: 200px; }
+  .legend-item { margin-bottom: 18px; }
+  .legend-label { font-size: 18px; font-weight: 700; margin-bottom: 3px; }
+  .legend-desc { font-size: 15px; color: var(--text-sub); line-height: 1.6; font-weight: 400; }
+  .legend-ex { font-size: 13px; color: var(--text-ex); margin-top: 2px; font-weight: 400; }
+</style>
+</head>
+<body>
+<div class="zukai">
+  <div class="zukai-title">{{TITLE}}</div>
+  <div class="zukai-sub">{{SUBTITLE}}</div>
+  <div class="concept-wrap">
+    <div class="circle-diagram">
+      <!-- 4階層の例。階層数に応じてr1〜r4を増減する -->
+      <div class="circle-ring r1">{{LAYER_1_LABEL}}</div>
+      <div class="circle-ring r2">{{LAYER_2_LABEL}}</div>
+      <div class="circle-ring r3">{{LAYER_3_LABEL}}</div>
+      <div class="circle-ring r4">{{LAYER_4_LABEL}}</div>
+    </div>
+    <div class="legend">
+      {{LEGEND_ITEMS}}
+      <!--
+      パターン（各レイヤーに対応）:
+      <div class="legend-item">
+        <div class="legend-label" style="color: #4a6cf7;">ラベル</div>
+        <div class="legend-desc">説明文</div>
+        <div class="legend-ex">例：具体例</div>
+      </div>
+      -->
+    </div>
+  </div>
+</div>
+</body>
+</html>

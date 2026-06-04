@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #4a6cf7;
+    --accent-bg: #fafbff;
+    --accent-border: #4a6cf7;
+    --neg: #ef4444;
+    --neg-bg: #fffafa;
+    --text-main: #2c2c3e;
+    --text-sub: #9a9ab0;
+    --check: #22c55e;
+    --divider: #f0f0f5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'M PLUS Rounded 1c', -apple-system, 'Hiragino Sans', sans-serif;
+    background: #f0f2f5;
+    padding: 40px 24px;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .zukai {
+    background: #fff;
+    border-radius: 20px;
+    padding: 56px 64px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  }
+  .zukai-title {
+    text-align: center; font-size: 34px; font-weight: 800;
+    color: var(--text-main); margin-bottom: 10px; letter-spacing: 0.5px;
+  }
+  .zukai-sub {
+    text-align: center; font-size: 17px; color: var(--text-sub);
+    margin-bottom: 40px; font-weight: 400;
+  }
+  .compare-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .compare-col {
+    border-radius: 16px;
+    padding: 28px;
+    border: 2px solid;
+  }
+  .compare-col.left {
+    border-color: var(--accent-border);
+    background: var(--accent-bg);
+  }
+  .compare-col.right {
+    border-color: var(--neg);
+    background: var(--neg-bg);
+  }
+  .compare-col h3 {
+    font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 6px;
+  }
+  .compare-col.left h3 { color: var(--accent); }
+  .compare-col.right h3 { color: var(--neg); }
+  .compare-sub {
+    text-align: center; font-size: 15px; color: var(--text-sub);
+    margin-bottom: 18px; font-weight: 500;
+  }
+  .compare-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 16px; color: #3a3a50; padding: 9px 0;
+    border-bottom: 1px solid var(--divider); line-height: 1.5; font-weight: 500;
+  }
+  .compare-item:last-child { border-bottom: none; }
+  .check { color: var(--check); font-weight: 700; flex-shrink: 0; }
+  .cross { color: var(--neg); font-weight: 700; flex-shrink: 0; }
+  .vs-badge {
+    display: flex; align-items: center; justify-content: center;
+    width: 48px; height: 48px; background: var(--text-main); border-radius: 50%;
+    color: #fff; font-size: 13px; font-weight: 800;
+    margin-top: 68px; flex-shrink: 0;
+  }
+  .compare-footer {
+    margin-top: 22px; background: var(--accent); border-radius: 14px;
+    padding: 18px 24px; text-align: center;
+    color: #fff; font-size: 17px; font-weight: 700;
+  }
+  .compare-footer-sub {
+    font-size: 14px; color: rgba(255,255,255,0.82); margin-top: 5px; font-weight: 400;
+  }
+</style>
+</head>
+<body>
+<div class="zukai">
+  <div class="zukai-title">{{TITLE}}</div>
+  <div class="zukai-sub">{{SUBTITLE}}</div>
+  <div class="compare-wrap">
+    <div class="compare-col left">
+      <h3>{{LEFT_TITLE}}</h3>
+      <div class="compare-sub">{{LEFT_LABEL}}</div>
+      {{LEFT_ITEMS}}
+      <!-- パターン: <div class="compare-item"><span class="check">✓</span> テキスト</div> -->
+    </div>
+    <div class="vs-badge">VS</div>
+    <div class="compare-col right">
+      <h3>{{RIGHT_TITLE}}</h3>
+      <div class="compare-sub">{{RIGHT_LABEL}}</div>
+      {{RIGHT_ITEMS}}
+      <!-- パターン: <div class="compare-item"><span class="cross">✗</span> テキスト</div> -->
+    </div>
+  </div>
+  <div class="compare-footer">
+    {{FOOTER_MAIN}}
+    <div class="compare-footer-sub">{{FOOTER_SUB}}</div>
+  </div>
+</div>
+</body>
+</html>
